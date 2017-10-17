@@ -21,12 +21,21 @@ int main(void){
     MPI_Comm_size(MPI_COMM_WORLD, &comm_sz);
     MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
 
+    double * Va, Vx, Vy;
     
+    Va = malloc(n*n*sizeof(double));
+    Vx = malloc(n*sizeof(double));
+    Vy = malloc(n*sizeof(double));
+
     //printf("id: %d sum: %d\n", my_rank, local_sum);
 
     if(my_rank == 0){
     }
+    free(Va);
+    free(Vx);
+    free(Vy);
     MPI_Finalize();
+
     return 0;
 }
 
